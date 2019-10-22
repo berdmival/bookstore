@@ -1,0 +1,4 @@
+package by.berdmival.bookstore.entity;
+
+public class User {
+}
