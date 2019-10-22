@@ -2,10 +2,7 @@ package by.berdmival.bookstore.entity;
 
 import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Set;
 
 @Data
@@ -20,5 +17,10 @@ public class BookAuthor {
     private String secondName;
 
     @ManyToMany(mappedBy = "bookAuthors")
+    @JoinTable(
+            name = "books_authors_relations",
+            joinColumns = @JoinColumn(name = "author_id"),
+            inverseJoinColumns = @JoinColumn(name = "book_id")
+    )
     private Set<Book> books;
 }
