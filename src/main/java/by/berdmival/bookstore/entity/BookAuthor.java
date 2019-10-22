@@ -10,7 +10,7 @@ import java.util.Set;
 public class BookAuthor {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String firstName;
