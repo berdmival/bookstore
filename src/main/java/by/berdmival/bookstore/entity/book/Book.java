@@ -1,4 +1,4 @@
-package by.berdmival.bookstore.entity;
+package by.berdmival.bookstore.entity.book;
 
 import lombok.Data;
 
@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
+@Entity
 @Data
 @Table(name = "books")
 public class Book implements Serializable {

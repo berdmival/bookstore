@@ -1,10 +1,11 @@
-package by.berdmival.bookstore.entity;
+package by.berdmival.bookstore.entity.book;
 
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Set;
 
+@Entity
 @Data
 @Table(name = "authors")
 public class BookAuthor {
@@ -17,10 +18,5 @@ public class BookAuthor {
     private String secondName;
 
     @ManyToMany(mappedBy = "bookAuthors")
-    @JoinTable(
-            name = "books_authors_relations",
-            joinColumns = @JoinColumn(name = "author_id"),
-            inverseJoinColumns = @JoinColumn(name = "book_id")
-    )
     private Set<Book> books;
 }
