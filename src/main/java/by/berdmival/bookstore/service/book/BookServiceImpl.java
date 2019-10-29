@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Service("bookService")
 @Repository
 public class BookServiceImpl implements BookService {
 
