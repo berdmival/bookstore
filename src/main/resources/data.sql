@@ -9,3 +9,17 @@ INSERT INTO books (name, price, yearOfPublication)
 INSERT INTO books (name, price, yearOfPublication)
     VALUES ('Book5', 62, 2019);
 
+INSERT INTO genres (name)
+VALUES ('Fary tailes');
+INSERT INTO genres (name)
+VALUES ('Historical');
+INSERT INTO genres (name)
+VALUES ('Fantastic');
+
+INSERT INTO authors (firstName, secondName)
+VALUES ('Aleksandr', 'Pushkin');
+INSERT INTO authors (firstName, secondName)
+VALUES ('Stiven', 'King');
+INSERT INTO authors (firstName, secondName)
+VALUES ('Vasil', 'Bykov');
+
