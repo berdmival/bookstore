@@ -17,6 +17,4 @@ public class BookAuthor {
     private String firstName;
     private String secondName;
 
-    @ManyToMany(mappedBy = "bookAuthors")
-    private Set<Book> books;
 }

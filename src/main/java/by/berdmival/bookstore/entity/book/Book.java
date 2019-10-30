@@ -21,17 +21,17 @@ public class Book implements Serializable {
 
     @ManyToMany
     @JoinTable(
-            name = "books_authors_relations",
+            name = "books_authors",
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id")
     )
-    private Set<BookAuthor> bookAuthors;
+    private Set<BookAuthor> authors;
 
     @ManyToMany
     @JoinTable(
-            name = "books_genres_relations",
+            name = "books_genres",
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id")
     )
-    private Set<BookGenre> bookGenres;
+    private Set<BookGenre> genres;
 }

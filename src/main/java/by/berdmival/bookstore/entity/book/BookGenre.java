@@ -16,6 +16,4 @@ public class BookGenre {
 
     private String name;
 
-    @ManyToMany(mappedBy = "bookGenres")
-    private Set<Book> books;
 }

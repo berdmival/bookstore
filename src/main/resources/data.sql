@@ -23,3 +23,16 @@ VALUES ('Stiven', 'King');
 INSERT INTO authors (first_name, second_name)
 VALUES ('Vasil', 'Bykov');
 
+INSERT INTO books_authors (book_id, author_id)
+VALUES (1, 1);
+INSERT INTO books_authors (book_id, author_id)
+VALUES (3, 2);
+INSERT INTO books_authors (book_id, author_id)
+VALUES (3, 3);
+
+INSERT INTO books_genres (book_id, genre_id)
+VALUES (1, 1);
+INSERT INTO books_genres (book_id, genre_id)
+VALUES (2, 1);
+INSERT INTO books_genres (book_id, genre_id)
+VALUES (3, 2);
