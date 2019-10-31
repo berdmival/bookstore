@@ -44,3 +44,28 @@ Content-Type: application/json
 }
 
 ###
+
+PUT http://localhost:7777/books/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "BookFromPut",
+  "price": 200,
+  "yearOfPublication": 9999,
+  "authors": [
+    {
+      "id": 1,
+      "firstName": "Aleksandr",
+      "secondName": "Pushkin"
+    }
+  ],
+  "genres": [
+    {
+      "id": 2,
+      "name": "Historical"
+    }
+  ]
+}
+
+###

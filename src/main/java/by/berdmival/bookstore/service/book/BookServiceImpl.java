@@ -24,12 +24,12 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> saveSeveral(List<Book> books) {
-        return (List<Book>) bookRepository.saveAll(books);
+        return bookRepository.saveAll(books);
     }
 
     @Override
     public List<Book> findAll() {
-        return (List<Book>) bookRepository.findAll();
+        return bookRepository.findAll();
     }
 
     @Override
