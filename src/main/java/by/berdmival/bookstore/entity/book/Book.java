@@ -25,7 +25,7 @@ public class Book implements Serializable {
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id")
     )
-    private Set<BookAuthor> authors;
+    private Set<Author> authors;
 
     @ManyToMany
     @JoinTable(
@@ -33,5 +33,5 @@ public class Book implements Serializable {
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id")
     )
-    private Set<BookGenre> genres;
+    private Set<Genre> genres;
 }

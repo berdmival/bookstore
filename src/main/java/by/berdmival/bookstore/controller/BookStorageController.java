@@ -25,7 +25,8 @@ public class BookStorageController {
     }
 
     @PutMapping(path = "/books/{bookId}")
-    ResponseEntity<Book> updateBook(@RequestBody Book book) {
+    ResponseEntity<Book> updateBook(@RequestBody Book book, @PathVariable("bookId") Long bookId) {
+        book.setId(bookId);
         return ResponseEntity.ok(bookService.saveOne(book));
     }
 
