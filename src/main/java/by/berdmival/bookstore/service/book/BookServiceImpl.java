@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service("bookService")
 @Repository
@@ -30,6 +31,16 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> findAll() {
         return bookRepository.findAll();
+    }
+
+    @Override
+    public Book findById(Long id) {
+        Optional<Book> searchResult= bookRepository.findById(id);
+        if (searchResult.isPresent()) {
+            return searchResult.get();
+        } else {
+            return new Book();
+        }
     }
 
     @Override

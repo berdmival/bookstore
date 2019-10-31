@@ -30,6 +30,16 @@ public class BookStorageController {
         return ResponseEntity.ok(bookService.saveOne(book));
     }
 
+    @GetMapping(path = "/books/{bookId}")
+    ResponseEntity<Book> getBookById(@PathVariable("bookId") Long bookId) {
+        Book book = bookService.findById(bookId);
+        if (book.getId() == bookId) {
+            return ResponseEntity.ok(book);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @GetMapping(path = "/books/author/{authorId}")
     ResponseEntity<List<Book>> getBooksByAuthorId(@PathVariable("authorId") Long authorId) {
         return ResponseEntity.ok(bookService.findBooksByAuthorId(authorId));

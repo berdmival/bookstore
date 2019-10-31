@@ -11,6 +11,8 @@ public interface BookService {
 
     List<Book> findAll();
 
+    Book findById(Long id);
+
     List<Book> findBooksByAuthorId(Long authorId);
 
     List<Book> findBooksByGenreId(Long genreId);
