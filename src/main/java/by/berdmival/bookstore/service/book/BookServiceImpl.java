@@ -36,11 +36,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public Book findById(Long id) {
         Optional<Book> searchResult = bookRepository.findById(id);
-        if (searchResult.isPresent()) {
-            return searchResult.get();
-        } else {
-            return new Book();
-        }
+        return searchResult.orElseGet(Book::new);
     }
 
     @Override
