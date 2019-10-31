@@ -40,6 +40,16 @@ public class BookStorageController {
         }
     }
 
+    @DeleteMapping(path = "/books/{bookId}")
+    void deleteBookById(@PathVariable("bookId") Long bookId) {
+        bookService.deleteOneById(bookId);
+    }
+
+    @DeleteMapping(path = "/books")
+    void deleteBook(@RequestBody Book book) {
+        bookService.deleteOne(book);
+    }
+
     @GetMapping(path = "/books/author/{authorId}")
     ResponseEntity<List<Book>> getBooksByAuthorId(@PathVariable("authorId") Long authorId) {
         return ResponseEntity.ok(bookService.findBooksByAuthorId(authorId));

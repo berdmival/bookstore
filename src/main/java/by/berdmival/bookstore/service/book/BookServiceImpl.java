@@ -35,7 +35,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book findById(Long id) {
-        Optional<Book> searchResult= bookRepository.findById(id);
+        Optional<Book> searchResult = bookRepository.findById(id);
         if (searchResult.isPresent()) {
             return searchResult.get();
         } else {
@@ -51,5 +51,15 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> findBooksByGenreId(Long genreId) {
         return bookRepository.findBooksByGenreId(genreId);
+    }
+
+    @Override
+    public void deleteOne(Book book) {
+        bookRepository.delete(book);
+    }
+
+    @Override
+    public void deleteOneById(Long id) {
+        bookRepository.deleteById(id);
     }
 }

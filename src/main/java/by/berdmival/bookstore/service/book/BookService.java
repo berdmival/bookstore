@@ -16,4 +16,8 @@ public interface BookService {
     List<Book> findBooksByAuthorId(Long authorId);
 
     List<Book> findBooksByGenreId(Long genreId);
+
+    void deleteOne(Book book);
+
+    void deleteOneById(Long id);
 }
