@@ -26,4 +26,9 @@ public class BookStorageController {
         return bookService.findBooksByAuthorId(authorId);
     }
 
+    @GetMapping(path = "/books/genre/{genreId}")
+    List<Book> getBooksByGenreId(@PathVariable("genreId") Long genreId) {
+        return bookService.findBooksByAuthorId(genreId);
+    }
+
 }

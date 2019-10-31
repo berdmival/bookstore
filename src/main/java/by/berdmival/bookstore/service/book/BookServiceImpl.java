@@ -39,6 +39,6 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> findBooksByGenreId(Long genreId) {
-        return null;
+        return bookRepository.findBooksByGenreId(genreId);
     }
 }
