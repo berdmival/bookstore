@@ -8,11 +8,9 @@ import java.util.List;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-    @Query(nativeQuery = true,
-            value = "SELECT * FROM BOOKS WHERE ID IN (SELECT BOOK_ID FROM BOOKS_AUTHORS WHERE AUTHOR_ID = ?1)")
+    @Query(value = "select b from Book b join b.authors a where a.id = :authorId")
     List<Book> findBooksByAuthorId(Long authorId);
 
-    @Query(nativeQuery = true,
-            value = "SELECT * FROM BOOKS WHERE ID IN (SELECT BOOK_ID FROM BOOKS_GENRES WHERE GENRE_ID = ?1)")
+    @Query(value = "select b from Book b join b.genres g where g.id = :genreId")
     List<Book> findBooksByGenreId(Long genreId);
 }
