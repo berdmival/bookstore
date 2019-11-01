@@ -1,7 +1,7 @@
 package by.berdmival.bookstore.controller;
 
 import by.berdmival.bookstore.entity.book.Genre;
-import by.berdmival.bookstore.service.book.GenreServiceImpl;
+import by.berdmival.bookstore.service.book.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import java.util.List;
 public class GenreStorageController {
 
     @Autowired
-    GenreServiceImpl genreService;
+    GenreService genreService;
 
     @GetMapping(path = "/genres")
     ResponseEntity<List<Genre>> getAllGenres() {

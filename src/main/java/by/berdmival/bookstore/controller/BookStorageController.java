@@ -1,7 +1,7 @@
 package by.berdmival.bookstore.controller;
 
 import by.berdmival.bookstore.entity.book.Book;
-import by.berdmival.bookstore.service.book.BookServiceImpl;
+import by.berdmival.bookstore.service.book.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import java.util.List;
 public class BookStorageController {
 
     @Autowired
-    BookServiceImpl bookService;
+    BookService bookService;
 
     @GetMapping(path = "/books")
     ResponseEntity<List<Book>> getAllBooks() {

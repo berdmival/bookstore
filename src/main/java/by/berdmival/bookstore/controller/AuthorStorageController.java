@@ -1,7 +1,7 @@
 package by.berdmival.bookstore.controller;
 
 import by.berdmival.bookstore.entity.book.Author;
-import by.berdmival.bookstore.service.book.AuthorServiceImpl;
+import by.berdmival.bookstore.service.book.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import java.util.List;
 public class AuthorStorageController {
 
     @Autowired
-    AuthorServiceImpl authorService;
+    AuthorService authorService;
 
     @GetMapping(path = "/authors")
     ResponseEntity<List<Author>> getAllAuthors() {
