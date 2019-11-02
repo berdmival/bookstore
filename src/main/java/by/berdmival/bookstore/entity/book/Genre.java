@@ -8,11 +8,9 @@ import javax.persistence.*;
 @Data
 @Table(name = "genres")
 public class Genre {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String name;
-
 }
