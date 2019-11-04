@@ -1,6 +1,8 @@
 package by.berdmival.bookstore.service.book;
 
+import by.berdmival.bookstore.entity.book.Author;
 import by.berdmival.bookstore.entity.book.Book;
+import by.berdmival.bookstore.entity.book.Genre;
 import by.berdmival.bookstore.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -40,13 +42,13 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> findBooksByAuthorId(Long authorId) {
-        return bookRepository.findBooksByAuthorId(authorId);
+    public List<Book> findBooksByAuthor(Author author) {
+        return bookRepository.getBooksByAuthorsContains(author);
     }
 
     @Override
-    public List<Book> findBooksByGenreId(Long genreId) {
-        return bookRepository.findBooksByGenreId(genreId);
+    public List<Book> findBooksByGenre(Genre genre) {
+        return bookRepository.getBooksByGenresContains(genre);
     }
 
     @Override

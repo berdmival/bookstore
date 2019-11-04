@@ -1,6 +1,8 @@
 package by.berdmival.bookstore.service.book;
 
+import by.berdmival.bookstore.entity.book.Author;
 import by.berdmival.bookstore.entity.book.Book;
+import by.berdmival.bookstore.entity.book.Genre;
 
 import java.util.List;
 
@@ -13,9 +15,9 @@ public interface BookService {
 
     Book findById(Long id);
 
-    List<Book> findBooksByAuthorId(Long authorId);
+    List<Book> findBooksByAuthor(Author author);
 
-    List<Book> findBooksByGenreId(Long genreId);
+    List<Book> findBooksByGenre(Genre genre);
 
     void deleteOne(Book book);
 

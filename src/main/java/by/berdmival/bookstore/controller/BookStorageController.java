@@ -1,7 +1,9 @@
 package by.berdmival.bookstore.controller;
 
 import by.berdmival.bookstore.entity.book.Book;
+import by.berdmival.bookstore.service.book.AuthorService;
 import by.berdmival.bookstore.service.book.BookService;
+import by.berdmival.bookstore.service.book.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,10 @@ public class BookStorageController {
 
     @Autowired
     BookService bookService;
+    @Autowired
+    GenreService genreService;
+    @Autowired
+    AuthorService authorService;
 
     @GetMapping(path = "/books")
     ResponseEntity<List<Book>> getAllBooks() {
@@ -52,12 +58,12 @@ public class BookStorageController {
 
     @GetMapping(path = "/books/author/{authorId}")
     ResponseEntity<List<Book>> getBooksByAuthorId(@PathVariable("authorId") Long authorId) {
-        return ResponseEntity.ok(bookService.findBooksByAuthorId(authorId));
+        return ResponseEntity.ok(bookService.findBooksByAuthor(authorService.findById(authorId)));
     }
 
     @GetMapping(path = "/books/genre/{genreId}")
     ResponseEntity<List<Book>> getBooksByGenreId(@PathVariable("genreId") Long genreId) {
-        return ResponseEntity.ok(bookService.findBooksByGenreId(genreId));
+        return ResponseEntity.ok(bookService.findBooksByGenre(genreService.findById(genreId)));
     }
 
 }
