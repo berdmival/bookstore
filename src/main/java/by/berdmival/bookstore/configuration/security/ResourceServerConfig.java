@@ -12,7 +12,7 @@ import org.springframework.security.oauth2.provider.token.ResourceServerTokenSer
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
-    
+
     @Autowired
     private ResourceServerTokenServices tokenServices;
 
@@ -28,11 +28,11 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/**").access("#oauth2.hasScope('read')")
                 .and()
                 .headers().addHeaderWriter((request, response) -> {
-                    response.addHeader("Access-Control-Allow-Origin", "*");
-                    if (request.getMethod().equals("OPTIONS")) {
-                        response.setHeader("Access-Control-Allow-Methods", request.getHeader("Access-Control-Request-Method"));
-                        response.setHeader("Access-Control-Allow-Headers", request.getHeader("Access-Control-Request-Headers"));
-                    }
-                });
+            response.addHeader("Access-Control-Allow-Origin", "*");
+            if (request.getMethod().equals("OPTIONS")) {
+                response.setHeader("Access-Control-Allow-Methods", request.getHeader("Access-Control-Request-Method"));
+                response.setHeader("Access-Control-Allow-Headers", request.getHeader("Access-Control-Request-Headers"));
+            }
+        });
     }
 }
