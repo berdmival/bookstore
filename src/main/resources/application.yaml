@@ -1,13 +1,28 @@
 server:
   port: 7777
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          okta:
+            client-id: client
+            client-secret: secret
+            client-name: Bookstore
+            provider: okta
+            redirect-uri-template: http://localhost:7777/
+            client-authentication-method: basic
+            authorization-grant-type: client_credentials
+        provider:
+          okta:
+            token-uri: http://localhost:8081/oauth/token
+            authorization-uri: http://localhost:8081/oauth/authorize
+            user-info-uri: http://localhost:8081/users/me
+            user-name-attribute: name
   datasource:
     url: jdbc:h2:mem:testdb
-    driverClassName: org.h2.Driver
     username: dbu
     password: password
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
   h2:
     console:
       enabled: true
