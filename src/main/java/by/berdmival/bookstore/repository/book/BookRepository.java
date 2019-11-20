@@ -1,4 +1,4 @@
-package by.berdmival.bookstore.repository;
+package by.berdmival.bookstore.repository.book;
 
 import by.berdmival.bookstore.entity.book.Author;
 import by.berdmival.bookstore.entity.book.Book;

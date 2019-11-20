@@ -15,8 +15,9 @@ public class Book implements Serializable {
     private long id;
 
     private String name;
-    private int price;
+    private double price;
     private int yearOfPublication;
+    private String pictureUri;
 
     @ManyToMany
     @JoinTable(

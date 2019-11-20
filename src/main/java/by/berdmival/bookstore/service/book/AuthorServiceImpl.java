@@ -1,7 +1,7 @@
 package by.berdmival.bookstore.service.book;
 
 import by.berdmival.bookstore.entity.book.Author;
-import by.berdmival.bookstore.repository.AuthorRepository;
+import by.berdmival.bookstore.repository.book.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import java.util.Optional;
 public class AuthorServiceImpl implements AuthorService {
 
     @Autowired
-    AuthorRepository authorRepository;
+    private AuthorRepository authorRepository;
 
     @Override
     public Author saveOne(Author author) {

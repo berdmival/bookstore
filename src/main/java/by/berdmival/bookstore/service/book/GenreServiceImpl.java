@@ -1,7 +1,7 @@
 package by.berdmival.bookstore.service.book;
 
 import by.berdmival.bookstore.entity.book.Genre;
-import by.berdmival.bookstore.repository.GenreRepository;
+import by.berdmival.bookstore.repository.book.GenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import java.util.Optional;
 public class GenreServiceImpl implements GenreService {
 
     @Autowired
-    GenreRepository genreRepository;
+    private GenreRepository genreRepository;
 
     @Override
     public Genre saveOne(Genre genre) {

@@ -3,7 +3,7 @@ package by.berdmival.bookstore.service.book;
 import by.berdmival.bookstore.entity.book.Author;
 import by.berdmival.bookstore.entity.book.Book;
 import by.berdmival.bookstore.entity.book.Genre;
-import by.berdmival.bookstore.repository.BookRepository;
+import by.berdmival.bookstore.repository.book.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ import java.util.Optional;
 public class BookServiceImpl implements BookService {
 
     @Autowired
-    BookRepository bookRepository;
+    private BookRepository bookRepository;
 
     @Override
     public Book saveOne(Book book) {
