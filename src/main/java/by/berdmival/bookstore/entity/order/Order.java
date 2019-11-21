@@ -1,10 +1,11 @@
 package by.berdmival.bookstore.entity.order;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.Set;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,8 +20,17 @@ public class Order {
     private String customerPhone;
     private String customerEmail;
     private String customerName;
-    private Date orderDateTime;
+    private LocalDateTime orderDateTime;
 
-    @OneToMany
-    private Set<OrderDetails> orderDetails;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "order")
+    private List<OrderDetails> orderDetails;
+
+    @Transient
+    public Double getTotalOrderPrice() {
+        return this.getOrderDetails().stream().reduce(
+                0.0,
+                (tp, od) -> tp + od.getTotalPrice(),
+                Double::sum);
+    }
 }

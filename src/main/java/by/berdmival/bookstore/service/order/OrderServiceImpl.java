@@ -1,10 +1,14 @@
 package by.berdmival.bookstore.service.order;
 
+import by.berdmival.bookstore.entity.order.Order;
 import by.berdmival.bookstore.repository.order.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Service("orderService")
 @Repository
@@ -12,4 +16,26 @@ import org.springframework.transaction.annotation.Transactional;
 public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderRepository orderRepository;
+
+    @Override
+    public List<Order> getAll() {
+        return orderRepository.findAll();
+    }
+
+    @Override
+    public List<Order> getAllByUser(String username) {
+        return orderRepository.findAllByUsername(username);
+    }
+
+    @Override
+    public Order addOrderForUser(Order order, String username) {
+        order.setUsername(username);
+        order.setOrderDateTime(LocalDateTime.now());
+        return orderRepository.save(order);
+    }
+
+    @Override
+    public Order update(Order order) {
+        return orderRepository.save(order);
+    }
 }

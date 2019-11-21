@@ -19,6 +19,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/books/**").authenticated()
                 .antMatchers("/authors/**").authenticated()
                 .antMatchers("/genres/**").authenticated()
+                .antMatchers("/orders/**").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .oauth2Login()

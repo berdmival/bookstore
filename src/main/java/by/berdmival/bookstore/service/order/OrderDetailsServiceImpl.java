@@ -1,5 +1,6 @@
 package by.berdmival.bookstore.service.order;
 
+import by.berdmival.bookstore.entity.order.OrderDetails;
 import by.berdmival.bookstore.repository.order.OrderDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -12,4 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class OrderDetailsServiceImpl implements OrderDetailsService {
     @Autowired
     private OrderDetailsRepository orderDetailsRepository;
+
+    @Override
+    public OrderDetails create(OrderDetails orderDetails) {
+        return orderDetailsRepository.save(orderDetails);
+    }
 }
