@@ -23,6 +23,11 @@ public class Order {
     private LocalDateTime orderDateTime;
 
     @JsonManagedReference
+    @OneToOne
+    @JoinColumn(name = "order_status_id", referencedColumnName = "id")
+    private OrderStatus orderStatus;
+
+    @JsonManagedReference
     @OneToMany(mappedBy = "order")
     private List<OrderDetails> orderDetails;
 

@@ -6,7 +6,6 @@ import by.berdmival.bookstore.service.book.BookService;
 import by.berdmival.bookstore.service.book.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,7 +36,6 @@ public class BookStorageController {
         return ResponseEntity.ok(bookService.saveOne(book));
     }
 
-    @PreAuthorize("#oauth2.hasScope('read')")
     @GetMapping(path = "/books/{bookId}")
     ResponseEntity<Book> getBookById(@PathVariable("bookId") Long bookId) {
         Book book = bookService.findById(bookId);

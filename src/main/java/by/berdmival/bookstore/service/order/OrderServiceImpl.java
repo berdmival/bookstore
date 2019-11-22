@@ -16,6 +16,8 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
+    private OrderStatusService orderStatusService;
 
     @Override
     public List<Order> getAll() {
@@ -31,6 +33,7 @@ public class OrderServiceImpl implements OrderService {
     public Order addOrderForUser(Order order, String username) {
         order.setUsername(username);
         order.setOrderDateTime(LocalDateTime.now());
+        order.setOrderStatus(orderStatusService.getByName("New"));
         return orderRepository.save(order);
     }
 

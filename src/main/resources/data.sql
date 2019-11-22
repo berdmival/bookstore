@@ -38,3 +38,12 @@ INSERT INTO books_genres (book_id, genre_id)
 VALUES (2, 1);
 INSERT INTO books_genres (book_id, genre_id)
 VALUES (3, 2);
+
+INSERT INTO order_statuses (name)
+VALUES ('New');
+INSERT INTO order_statuses (name)
+VALUES ('Picking');
+INSERT INTO order_statuses (name)
+VALUES ('Complete');
+INSERT INTO order_statuses (name)
+VALUES ('Delivered');

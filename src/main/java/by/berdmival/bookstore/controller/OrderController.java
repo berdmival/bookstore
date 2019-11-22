@@ -1,5 +1,6 @@
 package by.berdmival.bookstore.controller;
 
+import by.berdmival.bookstore.dto.OrderForm;
 import by.berdmival.bookstore.dto.OrderProductDto;
 import by.berdmival.bookstore.entity.order.Order;
 import by.berdmival.bookstore.entity.order.OrderDetails;
@@ -7,10 +8,7 @@ import by.berdmival.bookstore.service.order.OrderDetailsService;
 import by.berdmival.bookstore.service.order.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.ArrayList;
@@ -50,16 +48,9 @@ public class OrderController {
         return ResponseEntity.ok(orderService.update(order));
     }
 
-    public static class OrderForm {
-
-        private List<OrderProductDto> products;
-
-        public List<OrderProductDto> getProducts() {
-            return products;
-        }
-
-        public void setProducts(List<OrderProductDto> products) {
-            this.products = products;
-        }
+    @PutMapping("/orders/{orderId}")
+    public ResponseEntity<Order> updateOrder(@RequestBody Order order, @PathVariable("orderId") Long orderId) {
+        order.setId(orderId);
+        return ResponseEntity.ok(orderService.update(order));
     }
 }
