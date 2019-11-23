@@ -41,4 +41,14 @@ public class OrderServiceImpl implements OrderService {
     public Order update(Order order) {
         return orderRepository.save(order);
     }
+
+    @Override
+    public Order getById(Long orderId) {
+        return orderRepository.getOne(orderId);
+    }
+
+    @Override
+    public void deleteById(Long orderId) {
+        orderRepository.deleteById(orderId);
+    }
 }

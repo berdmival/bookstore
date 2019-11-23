@@ -12,4 +12,8 @@ public interface OrderService {
     Order addOrderForUser(Order order, String username);
 
     Order update(Order order);
+
+    Order getById(Long orderId);
+
+    void deleteById(Long orderId);
 }

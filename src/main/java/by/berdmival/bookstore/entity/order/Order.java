@@ -18,7 +18,6 @@ public class Order {
     private String username;
     private String customerAddress;
     private String customerPhone;
-    private String customerEmail;
     private String customerName;
     private LocalDateTime orderDateTime;
 

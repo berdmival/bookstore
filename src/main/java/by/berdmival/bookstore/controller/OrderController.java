@@ -53,4 +53,14 @@ public class OrderController {
         order.setId(orderId);
         return ResponseEntity.ok(orderService.update(order));
     }
+
+    @GetMapping("/orders/{orderId}")
+    public ResponseEntity<Order> updateOrder(@PathVariable("orderId") Long orderId) {
+        return ResponseEntity.ok(orderService.getById(orderId));
+    }
+
+    @DeleteMapping("/orders/{orderId}")
+    public void deleteOrder(@PathVariable("orderId") Long orderId) {
+        orderService.deleteById(orderId);
+    }
 }
