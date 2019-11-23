@@ -10,28 +10,27 @@ import java.util.List;
 
 @RestController
 public class GenreStorageController {
-
     @Autowired
-    GenreService genreService;
+    private GenreService genreService;
 
     @GetMapping(path = "/genres")
-    ResponseEntity<List<Genre>> getAllGenres() {
+    public ResponseEntity<List<Genre>> getAllGenres() {
         return ResponseEntity.ok(genreService.findAll());
     }
 
     @PostMapping(path = "/genres")
-    ResponseEntity<Genre> createGenre(@RequestBody Genre genre) {
+    public ResponseEntity<Genre> createGenre(@RequestBody Genre genre) {
         return ResponseEntity.ok(genreService.saveOne(genre));
     }
 
     @PutMapping(path = "/genres/{genreId}")
-    ResponseEntity<Genre> updateGenre(@RequestBody Genre genre, @PathVariable("genreId") Long genreId) {
+    public ResponseEntity<Genre> updateGenre(@RequestBody Genre genre, @PathVariable("genreId") Long genreId) {
         genre.setId(genreId);
         return ResponseEntity.ok(genreService.saveOne(genre));
     }
 
     @GetMapping(path = "/genres/{genreId}")
-    ResponseEntity<Genre> getGenreById(@PathVariable("genreId") Long genreId) {
+    public ResponseEntity<Genre> getGenreById(@PathVariable("genreId") Long genreId) {
         Genre genre = genreService.findById(genreId);
         if (genre.getId() == genreId) {
             return ResponseEntity.ok(genre);
@@ -41,12 +40,12 @@ public class GenreStorageController {
     }
 
     @DeleteMapping(path = "/genres/{genreId}")
-    void deleteGenreById(@PathVariable("genreId") Long genreId) {
+    public void deleteGenreById(@PathVariable("genreId") Long genreId) {
         genreService.deleteOneById(genreId);
     }
 
     @DeleteMapping(path = "/genres")
-    void deleteGenre(@RequestBody Genre genre) {
+    public void deleteGenre(@RequestBody Genre genre) {
         genreService.deleteOne(genre);
     }
 

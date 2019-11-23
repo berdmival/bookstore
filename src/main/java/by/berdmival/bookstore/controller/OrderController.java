@@ -17,7 +17,7 @@ import java.util.List;
 @RestController
 public class OrderController {
     @Autowired
-    OrderDetailsService orderDetailsService;
+    private OrderDetailsService orderDetailsService;
     @Autowired
     private OrderService orderService;
 

@@ -14,7 +14,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping(path = "/users")
-    ResponseEntity<UserDetails> addUser(@RequestParam String username, @RequestParam String password) {
+    public ResponseEntity<UserDetails> addUser(@RequestParam String username, @RequestParam String password) {
         return ResponseEntity.ok(userService.addUser(username, password));
     }
 }
