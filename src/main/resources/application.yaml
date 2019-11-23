@@ -3,8 +3,6 @@ server:
 spring:
   security:
     oauth2:
-      resource:
-        filter-order: 3
       client:
         registration:
           okta:
@@ -33,9 +31,3 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
-#  instance:
-#    preferIpAddress: true
