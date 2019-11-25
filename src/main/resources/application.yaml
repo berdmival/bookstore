@@ -17,7 +17,7 @@ spring:
           okta:
             token-uri: http://localhost:7777/oauth/token
             authorization-uri: http://localhost:7777/oauth/authorize
-            user-info-uri: http://localhost:7777/users/acc
+            user-info-uri: http://localhost:7777/users/validate
             user-name-attribute: name
   datasource:
     url: jdbc:postgresql://localhost:5432/bookstore
